@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDS Store - Hardware Products</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        const PRODUCTS = [
+            {
+                name: "AMD Ryzen 9 7900X",
+                description: "The AMD Ryzen 9 7900X is a powerful processor that offers high performance and efficient power consumption. It features 16 cores and 32 threads, with a base clock speed of 3.6 GHz and a boost clock speed of up to 4.7 GHz. The processor also features 76MB of cache memory and supports PCIe 5.0 and DDR5 memory. With its high performance and efficient power consumption, the Ryzen 9 7900X is a great choice for gaming and content creation.",
+                image: "./assets/hardware/AMDRyzen97900X.webp",
+            },
+            {
+                name: "NVIDIA GeForce RTX 4070 12GB",
+                description: "The NVIDIA GeForce RTX 4070 12GB is a powerful graphics card that offers outstanding performance and gaming capabilities. It features 8,388 CUDA cores and 96 GB GDDR6 memory, allowing it to handle complex graphics workloads with ease. The card supports up to 4K resolution and supports all current graphics APIs such as DirectX 12, Vulkan, and OpenGL. With its outstanding performance and excellent value, the RTX 4070 12GB is a great choice for gamers and content creators who want to push the limits of their graphics capabilities.",
+                image: "./assets/hardware/RTX4070.png",
+            },
+            {
+                name: "Corsair RM6500i 650W ATX Power Supply",
+                description: "The Corsair RM6500i 650W ATX Power Supply is a high-performance power supply unit that delivers reliable power to your computer. It features 80+ Gold certification, which means it can handle the demands of even the most powerful builds. It also features a temperature-monitoring system and a 12-year warranty. With its high efficiency and reliability, the RM6500i 650W ATX Power Supply is a great choice for those who want to build their computer with confidence.",
+                image: "./assets/hardware/PSU.webp",
+            },
+            {
+                name: "Western Digital Caviar 1TB NVMe SSD",
+                description: "The Western Digital Caviar 1TB NVMe SSD is a high-performance solid-state drive that delivers lightning-fast performance and reliability. It features NVMe 3.2 protocol, which allows for faster data transfer speeds. It also features a 512GB cache and a 5-year warranty. With its speed, reliability, and durability, the Caviar 1TB NVMe SSD is a great choice for those who want to maximize their computer's performance and storage capacity.",
+                image: "./assets/hardware/SSD.png",
+            },
+            {
+                name: "Seagate Barracuda 2TB HDD",
+                description: "The Seagate Barracuda 2TB Hard Disk Drive is a reliable and affordable external hard disk drive that can store a large amount of data. It features a 5,000 rpm rotation speed and a 3.5-inch form factor. It also features a 3-year warranty and is compatible with Windows, macOS, and Linux. With its affordability, reliability, and compatibility, the Barracuda 2TB HDD is a great choice for those who want to store and transfer large amounts of data.",
+                image: "./assets/hardware/HDD.webp",
+            },            
+        ]
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let intervalId = setInterval(() => {
+                if (document.getElementById("productsContainer")) {
+                    clearInterval(intervalId);
+                    document.getElementById("productsContainer").innerHTML = PRODUCTS.map(product => {
+                    return `
+                    <div class="mx-auto mt-[4.5rem] p-4 text-center text-white rounded-xl bg-gray-700">
+                        <h1 class="text-2xl font-bold">${product.name}</h1>
+                        <img class="mx-auto mt-4 w-64 h-64" src="${product.image}" />
+                        <p class="mx-auto mt-2 text-white">
+                            ${product.description}
+                        </p>
+                    </div>
+                    `
+                }).join("");
+                }
+            }, 100);
+        })
+    </script>
+</head>
+<body class="bg-slate-800">
+    
+    <!-- Navigation Bar -->
+    <div class="mx-auto flex items-center justify-center mt-4">
+
+        <div class="w-full max-w-[80%] flex flex-1 items-center justify-center gap-x-4 p-2">
+            <a
+                class="p-1 p-2 bg-transparent text-white"
+                href="/index.html"
+            >
+                Home
+            </a>
+            <span 
+                class="p-1 p-2 bg-transparent text-white underline underline-offset-4 decoration-4"
+                href="/hardware.html"
+            >
+                Hardware
+            </span>
+            <a 
+                class="p-1 p-2 bg-transparent text-white"
+                href="/software.html"
+            >
+                Software
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto mt-12">
+        <div class="text-white text-center">
+            <h1 class="text-5xl">Hardware Products</h1>
+        </div>
+
+        <!-- Product Items -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="productsContainer" />
+
+    </div>
+
+</body>
+</html>

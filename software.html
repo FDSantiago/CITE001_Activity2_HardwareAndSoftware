@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDS Store - Software Products</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        const PRODUCTS = [
+            {
+                name: "Adobe Photoshop CC",
+                description: "A powerful and versatile photo editing software that offers a wide range of editing tools and features to enhance your photos. With its user-friendly interface and extensive customization options, it's the perfect choice for both beginners and experienced photographers.",
+                image: "./assets/software/AdobePhotoshopCC.webp",
+            },
+            {
+                name: "Windows 11 Professional Edition",
+                description: "The latest version of the Windows operating system, offering a wide range of features and improvements over its predecessors. Windows 11 Professional Edition is a powerful and versatile operating system that is designed for business and professional use. It comes with advanced security features, improved performance, and a range of tools and features to help you get the most out of your computer.",
+                image: "./assets/software/Windows11.webp",
+            },
+            {
+                name: "Microsoft Office 365 Home",
+                description: "A powerful software suite that includes the latest versions of Word, Excel, PowerPoint, and OneNote. Microsoft Office 365 Home is designed for personal and home use, and offers a range of features and tools to help you stay productive and organized.",
+                image: "./assets/software/MSOffice365.webp",
+            },
+            {
+                name: "Autodesk AutoCAD 2023",
+                description: "A powerful computer-aided design (CAD) software that offers a wide range of tools and features to help you create and edit 2D and 3D designs. Autodesk AutoCAD 2023 is designed for professionals and businesses, and offers advanced features and customization options to help you stay productive.",
+                image: "./assets/software/Autodesk_AutoCAD.png",
+            },
+            {
+                name: "Adobe Illustrator CC",
+                description: "A powerful and versatile vector graphics software that offers a wide range of tools and features to help you create and edit logos, icons, and other graphics. Adobe Illustrator CC is designed for both beginners and experienced designers, and offers advanced features and customization options to help you stay productive.",
+                image: "./assets/software/AdobeIllustratorCC.webp",
+            },
+            {
+                name: "Skype for Business Server 2019",
+                description: "A powerful communication and collaboration platform that offers a wide range of features and tools to help you stay connected and productive. Skype for Business Server 2019 is designed for businesses and organizations, and offers advanced security features, improved performance, and a range of tools and features to help you stay organized.",
+                image: "./assets/software/SkypeBusinessServer.png",
+            },
+        ]
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let intervalId = setInterval(() => {
+                if (document.getElementById("productsContainer")) {
+                    clearInterval(intervalId);
+                    document.getElementById("productsContainer").innerHTML = PRODUCTS.map(product => {
+                    return `
+                    <div class="mx-auto mt-[4.5rem] p-4 text-center text-white rounded-xl bg-gray-700">
+                        <h1 class="text-2xl font-bold">${product.name}</h1>
+                        <img class="mx-auto mt-4 w-64 h-64" src="${product.image}" />
+                        <p class="mx-auto mt-2 text-white">
+                            ${product.description}
+                        </p>
+                    </div>
+                    `
+                }).join("");
+                }
+            }, 100);
+        })
+    </script>
+</head>
+<body class="bg-slate-800">
+    
+    <!-- Navigation Bar -->
+    <div class="mx-auto flex items-center justify-center mt-4">
+
+        <div class="w-full max-w-[80%] flex flex-1 items-center justify-center gap-x-4 p-2">
+            <a
+                class="p-1 p-2 bg-transparent text-white"
+                href="/index.html"
+            >
+                Home
+            </a>
+            <a 
+                class="p-1 p-2 bg-transparent text-white"
+                href="/hardware.html"
+            >
+                Hardware
+            </a>
+            <span 
+                class="p-1 p-2 bg-transparent text-white underline underline-offset-4 decoration-4"
+                href="/software.html"
+            >
+                Software
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto mt-12">
+        <div class="text-white text-center">
+            <h1 class="text-5xl">Software Products</h1>
+        </div>
+
+        <!-- Product Items -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="productsContainer" />
+
+    </div>
+
+</body>
+</html>
